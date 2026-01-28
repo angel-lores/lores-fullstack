@@ -1,24 +1,23 @@
 const port = process.env.PORT || 5001;
 const http = require("http");
+const fs = require("fs");
+const pathMod = require("path");
 const querystring = require("querystring");
+const formPath = pathMod.join(__dirname, "form.html");
 
 const server = http.createServer((req, res) => {
   const path = (req.url || "").split("?")[0];
 
   if (req.method === "GET" && path === "/form") {
-    res.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
-    res.end(`
-      <form method="POST" action="/submit">
-        Name: <input name="name"><br>
-        Email: <input name="email"><br>
-        Comments: <input name="comments"><br>
-        Newsletter:
-          <input type="radio" name="newsletter" value="yes"> Yes
-          <input type="radio" name="newsletter" value="no" checked> No
-        <br>
-        <button type="submit">Submit</button>
-      </form>
-    `);
+    fs.readFile(formPath, "utf8", (err, html) => {
+      if (err) {
+        res.writeHead(500, { "Content-Type": "text/plain; charset=utf-8" });
+        res.end("Error loading form");
+        return;
+      }
+      res.writeHead(200, { "Content-Type": "text/html; charset=utf-8" });
+      res.end(html);
+    });
     return;
   }
 

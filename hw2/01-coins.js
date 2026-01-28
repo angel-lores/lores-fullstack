@@ -37,7 +37,7 @@ function calculateChange(total) {
       parts.push(`${count} ${label}`);
     }
   }
-  if (parts.length === 0) return "0 pennies";
+  if (parts.length === 0) return "no change";
   else return parts.join(", ");
 }
 
@@ -55,7 +55,7 @@ console.log(calculateChange(-5));
 console.log(calculateChange("abc"));
 // "abc" ==> Error: invalid number
 console.log(calculateChange(0));
-// $0.00 ==> 0 pennies
+// $0.00 ==> no change
 console.log(calculateChange(1.01));
 // $1.01 ==> 1 dollar, 1 penny
 console.log(calculateChange(2.35));
