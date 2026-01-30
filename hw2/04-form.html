@@ -1,0 +1,26 @@
+<form method="POST" action="/submit">
+  <label for="name">Name:</label>
+  <input id="name" name="name" required>
+  <br>
+
+  <label for="email">Email:</label>
+  <input id="email" name="email" type="email" required>
+  <br>
+
+  <label for="comments">Comments:</label>
+  <input id="comments" name="comments">
+  <br>
+
+  <span>Newsletter:</span>
+  <label for="newsletter-yes">
+    <input id="newsletter-yes" type="radio" name="newsletter" value="yes">
+    Yes
+  </label>
+  <label for="newsletter-no">
+    <input id="newsletter-no" type="radio" name="newsletter" value="no" checked>
+    No
+  </label>
+  <br>
+
+  <button type="submit">Submit</button>
+</form>
