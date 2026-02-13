@@ -1,0 +1,14 @@
+{
+  "name": "hw3-templating",
+  "version": "1.0.0",
+  "private": true,
+  "main": "app.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "pug": "^3.0.3"
+  }
+}
