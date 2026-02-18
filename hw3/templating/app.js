@@ -5,6 +5,7 @@ const port = process.env.PORT || 5001;
 
 app.set("view engine", "pug");
 app.set("views", `${__dirname}/views`);
+app.use(express.static(`${__dirname}/public`));
 
 async function fetchAllCountries() {
   const url =
